@@ -9,36 +9,36 @@ const EnrollmentPage = () => {
     email: '',
     phone: '',
     address: '',
-    course: '',
+    course: 'Groww Algo Mastery',
     paymentMethod: 'card'
   });
 
-  const courses = [
-    {
-      id: 'algorithmic-trading',
-      title: 'Complete Algorithmic Trading Masterclass',
-      price: 89.99,
-      originalPrice: 149.99,
-      duration: '12hrs 30min',
-      lessons: 45
-    },
-    {
-      id: 'technical-analysis',
-      title: 'Technical Analysis Fundamentals',
-      price: 59.99,
-      originalPrice: 99.99,
-      duration: '8hrs 45min',
-      lessons: 32
-    },
-    {
-      id: 'options-trading',
-      title: 'Advanced Options Trading Strategies',
-      price: 129.99,
-      originalPrice: 199.99,
-      duration: '15hrs 20min',
-      lessons: 58
-    }
-  ];
+  // const courses = [
+  //   {
+  //     id: 'algorithmic-trading',
+  //     title: 'Complete Algorithmic Trading Masterclass',
+  //     price: 89.99,
+  //     originalPrice: 149.99,
+  //     duration: '12hrs 30min',
+  //     lessons: 45
+  //   },
+  //   {
+  //     id: 'technical-analysis',
+  //     title: 'Technical Analysis Fundamentals',
+  //     price: 59.99,
+  //     originalPrice: 99.99,
+  //     duration: '8hrs 45min',
+  //     lessons: 32
+  //   },
+  //   {
+  //     id: 'options-trading',
+  //     title: 'Advanced Options Trading Strategies',
+  //     price: 129.99,
+  //     originalPrice: 199.99,
+  //     duration: '15hrs 20min',
+  //     lessons: 58
+  //   }
+  // ];
 
   const selectedCourse = courseData.find(course => course.title === formData.course);
 
@@ -50,11 +50,27 @@ const EnrollmentPage = () => {
     console.log(formData)
   };
 
-  const handleNextStep = () => {
-    if (currentStep < 3) {
-      setCurrentStep(currentStep + 1);
+ const handleNextStep = () => {
+  if (currentStep === 1) {
+    const { fullName, email, phone, course } = formData;
+
+    const isValid =
+      fullName.trim() !== '' &&
+      email.trim() !== '' &&
+      email.includes('@') &&
+      phone.trim() !== '' &&
+      course.trim() !== '';
+
+    if (!isValid) {
+      alert('Please fill all required fields correctly before proceeding.');
+      return;
     }
-  };
+  }
+
+  if (currentStep < 3) {
+    setCurrentStep(currentStep + 1);
+  }
+};
 
   const handlePrevStep = () => {
     if (currentStep > 1) {
@@ -82,6 +98,17 @@ const EnrollmentPage = () => {
       ))}
     </div>
   );
+
+const isStep1Valid = () => {
+  const { fullName, email, phone, course } = formData;
+  return (
+    fullName.trim() !== '' &&
+    email.trim() !== '' &&
+    email.includes('@') &&
+    phone.trim() !== '' &&
+    course.trim() !== ''
+  );
+};
 
   const renderStep1 = () => (
     <div className="space-y-6">
@@ -323,7 +350,7 @@ const EnrollmentPage = () => {
   );
 
   return (
-    <div className="pt-20 min-h-screen bg-gray-50">
+    <div className="pt-20 min-h-screen bg-[#f5fafc]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
           {/* Header */}
@@ -361,12 +388,18 @@ const EnrollmentPage = () => {
                   >
                     Previous
                   </button>
-                  <button
-                    onClick={handleNextStep}
-                    className="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors"
-                  >
-                    {currentStep === 2 ? 'Complete Free Registration' : 'Next'}
-                  </button>
+                 <button
+  onClick={handleNextStep}
+  disabled={!isStep1Valid()}
+  className={`px-8 py-3 rounded-full font-semibold transition-colors ${
+    isStep1Valid()
+      ? 'bg-blue-600 text-white hover:bg-blue-700'
+      : 'bg-blue-300 text-white cursor-not-allowed'
+  }`}
+>
+  {currentStep === 2 ? 'Complete Free Registration' : 'Next'}
+</button>
+
                 </div>
               )}
             </div>

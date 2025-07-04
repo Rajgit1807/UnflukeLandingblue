@@ -137,7 +137,7 @@ const timeline = [
                       <div className="flex-1">
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                           <h4 className="font-bold text-gray-900">{edu.degree}</h4>
-                          <span className="text-sm font-medium text-[#2563EB] bg-blue-100 px-3 py-1 rounded-full">
+                          <span className="text-sm font-medium text-[#2563EB] w-fit bg-blue-100 px-3 py-1 rounded-full">
                             {edu.year}
                           </span>
                         </div>
