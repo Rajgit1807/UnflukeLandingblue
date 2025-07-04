@@ -1,5 +1,6 @@
 import React from 'react';
 import { TrendingUp, BookOpen, Wrench } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const ServicesSection = () => {
   const services = [
@@ -63,7 +64,17 @@ const ServicesSection = () => {
                   {service.description}
                 </p>
               </div>
-              <a href={service.link}>
+{service.title === "Learn Algo Trading" ? (
+  <Link to={service.link}>
+              <button className={`font-semibold flex items-center gap-2 ${
+                service.bgColor === 'bg-blue-600' ? 'text-white hover:text-blue-100' : 'text-blue-600 hover:text-blue-700'
+              } transition-colors`}>
+                {service.buttonText}
+                <span>→</span>
+              </button>
+              </Link>
+) : (
+ <a href={service.link}>
               <button className={`font-semibold flex items-center gap-2 ${
                 service.bgColor === 'bg-blue-600' ? 'text-white hover:text-blue-100' : 'text-blue-600 hover:text-blue-700'
               } transition-colors`}>
@@ -71,6 +82,7 @@ const ServicesSection = () => {
                 <span>→</span>
               </button>
               </a>
+)}
             </div>
           ))}
         </div>
