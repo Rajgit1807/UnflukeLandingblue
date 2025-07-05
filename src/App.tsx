@@ -30,7 +30,7 @@ function App() {
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/course/:id" element={<CourseDetailsPage />} />
             <Route path="/ratings" element={<RatingsPage />} />
-            <Route path="/enrollment" element={<EnrollmentPage />} />
+            <Route path="/enrollment" element={<EnrollmentPage navhide={false}/>} />
             <Route path="/newsletter" element={<NewsletterPage />} />
             <Route path="/testimonials" element={<TestimonialsPage />} />
             <Route path="/faq" element={<FAQPage />} />
