@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
 import PopularCoursesSection from '../components/PopularCoursesSection';
@@ -8,10 +8,15 @@ import CertificatesSection from '../components/CertificatesSection';
 import TrustSection from '../components/TrustSection';
 import MyBooks from '../components/MyBooks';
 import Navigation from '../components/Navigation';
+import CourseDetailsPage from './CourseDetailsPage';
+import EnrollmentPage from './EnrollmentPage';
 
-const HomePage = () => {
-  const navItems = [
-    { name: 'Courses', path: '/courses' },
+
+
+const GrowwAlgo = () => {
+
+      const navItems = [
+    // { name: 'Courses', path: '/courses' },
     { name: 'Ratings', path: '/ratings' },
     { name: 'Testimonials', path: '/testimonials' },
     { name: 'FAQ', path: '/faq' },
@@ -20,17 +25,19 @@ const HomePage = () => {
 
   return (
     <div>
-     <Navigation navItems={navItems} />
+      <Navigation navItems={navItems} sincourse={true}/>
       <HeroSection />
-      <ServicesSection />
-      <PopularCoursesSection />
-      <RecordedCoursesSection />
+      {/* <ServicesSection /> */}
+      <CourseDetailsPage cid={1}/>
+      {/* <PopularCoursesSection /> */}
+      {/* <RecordedCoursesSection /> */}
       <StorySection />
       <CertificatesSection />
       <TrustSection />
-      <MyBooks/>
-    </div>
-  );
-};
+      <EnrollmentPage navhide={true} cid={1}/>
+      {/* <MyBooks/> */}
+      </div>
+  )
+}
 
-export default HomePage;
+export default GrowwAlgo

@@ -4,6 +4,7 @@ import growIcon from "./../assets/images/trusticon1.svg"
 import fyerIcon from "./../assets/images/trusticon2.svg"
 import deltaIcon from "./../assets/images/trusticon3.svg"
 import dhaIcon from "./../assets/images/trusticon4.svg"
+import Navigation from "../components/Navigation";
 
 const platforms = [
   {
@@ -27,10 +28,19 @@ const platforms = [
     image: dhaIcon,
   },
 ];
+const navItems = [
+    { name: 'Courses', path: '/courses' },
+    { name: 'Ratings', path: '/ratings' },
+    { name: 'Testimonials', path: '/testimonials' },
+    { name: 'FAQ', path: '/faq' },
+    { name: 'Contact', path: '/contact' },
+  ];
+
 
 const RatingPage = () => {
   return (
     <section className="bg-[#f5fafc] py-16 px-4 text-center w-full pt-28 pb-32">
+           <Navigation navItems={navItems} />
       <div className="max-w-[1320px] mx-auto">
         <div className="inline-block bg-blue-100 text-[#2563EB] px-5 pb-[7px] pt-[9px] rounded-full font-medium mb-6">
           Trusted & Verified

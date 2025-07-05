@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle, MessageSquare, User } from 'lucide-react';
 import axios from 'axios'; // at the top
 import ReCAPTCHA from 'react-google-recaptcha';
+import Navigation from '../components/Navigation';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -95,9 +96,18 @@ const handleCaptchaChange = (value: string | null): void => {
       answer: 'We offer a 7-day money-back guarantee on all our courses. See our refund policy for details.'
     }
   ];
-
+const navItems = [
+    { name: 'Courses', path: '/courses' },
+    { name: 'Ratings', path: '/ratings' },
+    { name: 'Testimonials', path: '/testimonials' },
+    { name: 'FAQ', path: '/faq' },
+    { name: 'Contact', path: '/contact' },
+  ];
+  
   return (
     <div className="pt-20 min-h-screen bg-[#f5fafc]">
+            <Navigation navItems={navItems} />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
         <div className="text-center mb-16">

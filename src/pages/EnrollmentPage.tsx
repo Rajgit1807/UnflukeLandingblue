@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import { Calendar, CreditCard, User, Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
 import {courseData} from "./../data/courseData"
+import Navigation from '../components/Navigation';
 
-const EnrollmentPage = () => {
+interface Enrollmentprops {
+  navhide: boolean; 
+   cid?: number;
+}
+
+const EnrollmentPage: React.FC<Enrollmentprops> = ({ navhide,cid }) => {
+
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     fullName: '',
@@ -188,10 +195,22 @@ const isStep1Valid = () => {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        {cid ? (<label className="block text-sm font-medium text-gray-700 mb-2">
+          Course:
+        </label>) : (<label className="block text-sm font-medium text-gray-700 mb-2">
           Choose one of the {courseData.length} course *
-        </label>
-        <select
+        </label>)}
+        {cid ? (<select
+          name="course"
+          value={formData.course}
+          onChange={handleInputChange}
+          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 transition-colors appearance-none bg-white"          
+          required
+        >
+            <option >
+              {courseData[cid-1].title}
+            </option>
+        </select>):( <select
           name="course"
           value={formData.course}
           onChange={handleInputChange}
@@ -203,7 +222,8 @@ const isStep1Valid = () => {
               {course.title}
             </option>
           ))}
-        </select>
+        </select>)}
+       
       </div>
     </div>
   );
@@ -348,9 +368,18 @@ const isStep1Valid = () => {
       </div>
     </div>
   );
+const navItems = [
+    { name: 'Courses', path: '/courses' },
+    { name: 'Ratings', path: '/ratings' },
+    { name: 'Testimonials', path: '/testimonials' },
+    { name: 'FAQ', path: '/faq' },
+    { name: 'Contact', path: '/contact' },
+  ];
 
   return (
-    <div className="pt-20 min-h-screen bg-[#f5fafc]">
+    <div className="pt-20 min-h-screen bg-[#f5fafc]" id='enroll-section'>
+      {navhide ?   "": (<Navigation navItems={navItems} />)
+}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
           {/* Header */}

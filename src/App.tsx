@@ -12,13 +12,18 @@ import TestimonialsPage from './pages/TestimonialsPage';
 import FAQPage from './pages/FAQPage';
 import ContactPage from './pages/ContactPage';
 import ScrollToTop from './components/ScrollToTop';
+import GrowwAlgo from './pages/GrowwAlgo';
+import HFTC from './pages/HFTC';
+import BasicsMarket from './pages/BasicsMarket';
+import BasicsOptions from './pages/BasicsOptions';
+import BackPython from './pages/BackPython';
+import AlgoPython from './pages/AlgoPython';
 
 function App() {
   return (
     <Router>
       <ScrollToTop/>
       <div className="min-h-screen bg-white">
-        <Navigation />
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -30,6 +35,12 @@ function App() {
             <Route path="/testimonials" element={<TestimonialsPage />} />
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/buycourse1" element={<GrowwAlgo />} />
+            <Route path="/buycourse2" element={<AlgoPython />} />
+            <Route path="/buycourse3" element={<HFTC />} />
+            <Route path="/buycourse4" element={<BackPython/>} />
+            <Route path="/buycourse5" element={<BasicsOptions/>} />
+            <Route path="/buycourse6" element={<BasicsMarket/>} />
           </Routes>
         </main>
         <Footer />

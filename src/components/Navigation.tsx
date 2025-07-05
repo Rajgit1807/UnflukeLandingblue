@@ -2,7 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, Menu, X, User } from 'lucide-react';
 
-const Navigation = () => {
+type NavItem = {
+  name: string;
+  path: string;
+};
+
+interface NavigationProps {
+  navItems: NavItem[];
+  sincourse?: boolean; // optional if it might not always be passed
+}
+
+const Navigation: React.FC<NavigationProps> = ({ navItems, sincourse }) => {
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
@@ -15,13 +26,13 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { name: 'Courses', path: '/courses' },
-    { name: 'Ratings', path: '/ratings' },
-    { name: 'Testimonials', path: '/testimonials' },
-    { name: 'FAQ', path: '/faq' },
-    { name: 'Contact', path: '/contact' },
-  ];
+  // const navItems = [
+  //   { name: 'Courses', path: '/courses' },
+  //   { name: 'Ratings', path: '/ratings' },
+  //   { name: 'Testimonials', path: '/testimonials' },
+  //   { name: 'FAQ', path: '/faq' },
+  //   { name: 'Contact', path: '/contact' },
+  // ];
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -67,7 +78,7 @@ const Navigation = () => {
           </div>
 
           {/* Auth Buttons - Desktop */}
-          <div className="hidden md:flex items-center space-x-4">
+          {!sincourse && <div className="hidden md:flex items-center space-x-4">
             <button className="text-gray-700 hover:text-[#2563eb] font-medium transition-colors">
               Sign in
             </button>
@@ -77,7 +88,8 @@ const Navigation = () => {
             >
               Register for Free
             </Link>
-          </div>
+          </div> }
+          
 
           {/* Mobile Menu Button */}
           <button

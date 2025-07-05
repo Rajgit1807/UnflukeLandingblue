@@ -6,16 +6,23 @@ import {
   Calendar, MessageSquare, Share2, Heart
 } from 'lucide-react';
 import { courseData } from '../data/courseData';
-const CourseDetailsPage = () => {
-  const { id } = useParams();
+import Navigation from '../components/Navigation';
+
+interface CourseDetailsPageProps {
+  cid?: number; // Make optional in case it's not passed
+}
+
+const CourseDetailsPage: React.FC<CourseDetailsPageProps> = ({ cid }) => {
+  const { id } = useParams<{ id?: string }>();
 
   const [activeTab, setActiveTab] = useState('overview');
   const [isWishlisted, setIsWishlisted] = useState(false);
 
+  // Prefer route param if available, else use `cid` prop
+  const courseId = id ? parseInt(id, 10) : cid;
 
-const courseId = parseInt(id as string); 
-
-const course = courseData.find((c) => c.id === courseId);
+  // Assuming courseData is accessible here
+  const course = courseData.find((c) => c.id === courseId);
 
 if (!course) {
   return <div className="text-center py-20 text-gray-600">Course not found.</div>;
@@ -152,6 +159,14 @@ if (!course) {
     { id: 'details', label: 'Details' },
     { id: 'reviews', label: 'Reviews' }
   ];
+const navItems = [
+    { name: 'Courses', path: '/courses' },
+    { name: 'Ratings', path: '/ratings' },
+    { name: 'Testimonials', path: '/testimonials' },
+    { name: 'FAQ', path: '/faq' },
+    { name: 'Contact', path: '/contact' },
+  ];
+
 
   const renderOverview = () => (
     <div className="space-y-8">
@@ -335,16 +350,21 @@ if (!course) {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
+      {id ? ( <Navigation navItems={navItems} />):""}
       {/* Hero Section */}
       <div className="bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${id ? 'py-12': 'py-20'}`}>
+          {id && 
           <Link
             to="/courses"
             className="inline-flex items-center gap-2 text-gray-300 hover:text-white mb-6 transition-colors"
           >
+            
             <ArrowLeft className="w-4 h-4" />
             Back to Courses
           </Link>
+             }
+            
 
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
@@ -424,9 +444,17 @@ if (!course) {
                   </div>
 
                   <div className="space-y-3 mb-6">
-                    <button className="w-full bg-blue-600 text-white py-3 px-6 rounded-full font-semibold hover:bg-blue-700 transition-colors">
+                    {cid ? (<button  onClick={() => {
+    const section = document.getElementById('enroll-section');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }} className="w-full bg-blue-600 text-white py-3 px-6 rounded-full font-semibold hover:bg-blue-700 transition-colors">
                       Enroll Now
-                    </button>
+                    </button>):(<button  className="w-full bg-blue-600 text-white py-3 px-6 rounded-full font-semibold hover:bg-blue-700 transition-colors">
+                      Enroll Now
+                    </button>)}
+                    
                     {/* <button
                       onClick={() => setIsWishlisted(!isWishlisted)}
                       className={`w-full border-2 py-3 px-6 rounded-full font-semibold transition-colors ${
@@ -483,7 +511,7 @@ if (!course) {
       </div>
 
       {/* Course Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:py-12 py-8">
         <div className="lg:pr-80">
           {/* Tabs */}
           <div className="border-b border-gray-200 mb-8">

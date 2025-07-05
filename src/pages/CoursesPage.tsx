@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Filter, Clock, Star, Users, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Navigation from '../components/Navigation';
 
 const CoursesPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -12,6 +13,14 @@ const CoursesPage = () => {
   const categories = ['All', 'Trading', 'Technical Analysis', 'Risk Management', 'Python Programming', 'Algorithms'];
   const levels = ['All', 'Beginner', 'Intermediate', 'Advanced'];
   const types = ['All', 'Live', 'Recorded', 'Workshop'];
+
+const navItems = [
+    { name: 'Courses', path: '/courses' },
+    { name: 'Ratings', path: '/ratings' },
+    { name: 'Testimonials', path: '/testimonials' },
+    { name: 'FAQ', path: '/faq' },
+    { name: 'Contact', path: '/contact' },
+  ];
 
 const courses = [
   // Existing merged 9 courses (shown before)...
@@ -280,6 +289,7 @@ const courses = [
 
   return (
     <div className="pt-20 min-h-screen bg-[#f5fafc]">
+           <Navigation navItems={navItems} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, TrendingUp, Bell, Calendar, CheckCircle } from 'lucide-react';
+import Navigation from '../components/Navigation';
 
 const NewsletterPage = () => {
   const [email, setEmail] = useState('');
@@ -9,9 +10,18 @@ const NewsletterPage = () => {
     e.preventDefault();
     setIsSubscribed(true);
   };
+const navItems = [
+    { name: 'Courses', path: '/courses' },
+    { name: 'Ratings', path: '/ratings' },
+    { name: 'Testimonials', path: '/testimonials' },
+    { name: 'FAQ', path: '/faq' },
+    { name: 'Contact', path: '/contact' },
+  ];
+
 
   return (
     <div className="pt-20 min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-blue-50">
+            <Navigation navItems={navItems} />
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
