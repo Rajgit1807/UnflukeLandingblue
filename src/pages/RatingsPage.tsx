@@ -1,6 +1,6 @@
 import React from "react";
 
-import growIcon from "./../assets/images/trusticon1.svg"
+import growIcon from "./../assets/images/Groww.svg"
 import fyerIcon from "./../assets/images/trusticon2.svg"
 import deltaIcon from "./../assets/images/trusticon3.svg"
 import dhaIcon from "./../assets/images/trusticon4.svg"

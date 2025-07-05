@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Calendar, CreditCard, User, Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
 import {courseData} from "./../data/courseData"
 import Navigation from '../components/Navigation';
+import { useLocation } from 'react-router-dom';
 
 interface Enrollmentprops {
   navhide: boolean; 
@@ -10,6 +11,9 @@ interface Enrollmentprops {
 
 const EnrollmentPage: React.FC<Enrollmentprops> = ({ navhide, cid }) => {
 
+const location = useLocation();
+  const segments = location.pathname.split('/'); 
+  
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     fullName: '',
@@ -19,6 +23,7 @@ const EnrollmentPage: React.FC<Enrollmentprops> = ({ navhide, cid }) => {
     course: 'Groww Algo Mastery',
     paymentMethod: 'card'
   });
+
 
   // const courses = [
   //   {
@@ -376,10 +381,10 @@ const isStep1Valid = () => {
 //     { name: 'Contact', path: '/contact' },
 //   ];
 
+
   return (
     <div className="pt-20 min-h-screen bg-[#f5fafc]" id='enroll-section'>
-      {navhide?   "": (<Navigation navItems={false} />)
-}
+      {segments[1]=="enrollment" ?( <Navigation navItems={true} sincourse={false} />):(<Navigation navItems={false} sincourse= {true}/>)}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
           {/* Header */}

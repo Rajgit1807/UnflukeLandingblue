@@ -1,6 +1,12 @@
 import React from 'react';
 import { Play, TrendingUp, Users, BookOpen } from 'lucide-react';
 
+import GrowwIcon from "./../assets/images/Groww.svg"
+import UnflukeIcon from "./../assets/images/UNFLUKE.png"
+import ChitkaraIcon from "./../assets/images/chitkara-university.svg"
+import DeutscheIcon from "./../assets/images/deutsche-bank.svg"
+import IIMIcon from "./../assets/images/IIM.svg"
+
 const HeroSection = () => {
   const stats = [
     { icon: BookOpen, value: '5K+', label: 'Online Courses' },
@@ -8,7 +14,13 @@ const HeroSection = () => {
     { icon: Users, value: '250+', label: 'Tutors' }
   ];
  
-
+const logos = [
+  { image: GrowwIcon, width: 170, height: 140 },
+  { image: UnflukeIcon, width: 200, height: 40 },
+  { image: IIMIcon, width: 50, height: 40 },
+  { image: ChitkaraIcon, width: 160, height: 40 },
+  { image: DeutscheIcon, width: 190, height: 40 },
+];
  
 
  
@@ -29,7 +41,7 @@ const HeroSection = () => {
 </div>
 
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-4 md:pb-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
           {/* Left Column - Content */}
           <div className="space-y-8">
@@ -121,14 +133,36 @@ const HeroSection = () => {
         </div>
 
         {/* Partner Logos */}
-        <div className="mt-20 pt-12 border-t border-gray-200">
-          <div className="flex items-center justify-center gap-8 lg:gap-12 opacity-60 grayscale">
-            {['Groww', 'Unfluke', 'IIM', 'Deutsche Bank', 'Chitkara University'].map((company, index) => (
-              <div key={index} className="text-2xl font-bold text-gray-400 capitalize">
-                {company}
-              </div>
-            ))}
+        <div className="mt-20 pt-3 md:pt-12 border-t border-gray-200">
+          <div className="grid grid-cols-4 items-center justify-center gap-2 md:gap-4 opacity-60 grayscale px-3 md:px-10 lg:px-20 mx-auto">
+           {logos.slice(0,4).map((logo, index) =>
+  logo.image === IIMIcon ? (
+    <div key={index} className="flex items-center w-fit mx-auto gap-3">
+      <img src={logo.image} width={logo.width} height={logo.height} alt="logo" />
+      <p className='text-gray-800 text-4xl font-bold'>IIM</p>
+    </div>
+  ) : (
+    <div key={index} className="flex items-center w-fit mx-auto">
+      <img src={logo.image} width={logo.width} height={logo.height} alt="logo" />
+    </div>
+  )
+)}
           </div>
+          <div  className="flex items-center justify-centergap-2 md:gap-4 opacity-60 grayscale px-3 md:px-10 lg:px-20 mx-auto mt-3">
+            {logos.slice(4,5).map((logo, index) =>
+  logo.image === IIMIcon ? (
+    <div key={index} className="flex items-center w-fit mx-auto gap-3">
+      <img src={logo.image} width={logo.width} height={logo.height} alt="logo" />
+      <p className='text-gray-800 text-4xl font-bold'>IIM</p>
+    </div>
+  ) : (
+    <div key={index} className="flex items-center w-fit mx-auto">
+      <img src={logo.image} width={logo.width} height={logo.height} alt="logo" />
+    </div>
+  )
+)}
+          </div>
+
         </div>
       </div>
     </section>

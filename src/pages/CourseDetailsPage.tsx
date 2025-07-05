@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { 
   Play, Clock, Star, Users, Download, CheckCircle, 
   Award, Globe, Smartphone, ArrowLeft, BookOpen,
@@ -15,6 +15,8 @@ interface CourseDetailsPageProps {
 const CourseDetailsPage: React.FC<CourseDetailsPageProps> = ({ cid }) => {
 
   const { id } = useParams<{ id?: string }>();
+ const location = useLocation();
+  const segments = location.pathname.split('/'); 
 
   const [activeTab, setActiveTab] = useState('overview');
   const [isWishlisted, setIsWishlisted] = useState(false);
@@ -157,29 +159,40 @@ if (!course) {
   const tabs = [
     { id: 'overview', label: 'Overview' },
     { id: 'curriculum', label: 'Curriculum' },
-    { id: 'details', label: 'Details' },
-    { id: 'reviews', label: 'Reviews' }
+    // { id: 'details', label: 'Details' },
+    // { id: 'reviews', label: 'Reviews' }
   ];
-const navItems = [
-    { name: 'Courses', path: '/courses' },
-    { name: 'Ratings', path: '/ratings' },
-    { name: 'Testimonials', path: '/testimonials' },
-    { name: 'FAQ', path: '/faq' },
-    { name: 'Contact', path: '/contact' },
-  ];
+// const navItems = [
+//     { name: 'Courses', path: '/courses' },
+//     { name: 'Ratings', path: '/ratings' },
+//     { name: 'Testimonials', path: '/testimonials' },
+//     { name: 'FAQ', path: '/faq' },
+//     { name: 'Contact', path: '/contact' },
+//   ];
 
 
   const renderOverview = () => (
     <div className="space-y-8">
       <div>
         <h3 className="text-xl font-bold text-gray-900 mb-4">About This Course</h3>
-        <p className="text-gray-600 leading-relaxed mb-6">{course.aboutcourse}</p>
-        
+        <p className="text-gray-600 leading-relaxed mb-3">{course.aboutcourse}</p>
+        <p className="text-gray-600 leading-relaxed mb-6">{course.more}</p>
         <div className="grid md:grid-cols-2 gap-8">
           <div>
             <h4 className="font-semibold text-gray-900 mb-3">What You'll Learn</h4>
             <ul className="space-y-2">
               {course.featuresLearn.map((feature, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-600">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-3">Course Highlights </h4>
+            <ul className="space-y-2">
+              {course.coursehighlights.map((feature, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
                   <span className="text-gray-600">{feature}</span>
@@ -351,7 +364,7 @@ const navItems = [
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
-      { !cid ?( <Navigation navItems={false} />):""}
+      { segments[1] == "course" ?( <Navigation navItems={true} sincourse={false} />):(<Navigation navItems={false} sincourse= {true}/>)}
       {/* Hero Section */}
       <div className="bg-gray-900 text-white">
         <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${!cid ? 'py-12': 'py-20'}`}>
@@ -537,8 +550,8 @@ const navItems = [
           <div className="bg-white rounded-lg p-8">
             {activeTab === 'overview' && renderOverview()}
             {activeTab === 'curriculum' && renderCurriculum()}
-            {activeTab === 'details' && renderInstructor()}
-            {activeTab === 'reviews' && renderReviews()}
+            {/* {activeTab === 'details' && renderInstructor()}
+            {activeTab === 'reviews' && renderReviews()} */}
           </div>
         </div>
       </div>
