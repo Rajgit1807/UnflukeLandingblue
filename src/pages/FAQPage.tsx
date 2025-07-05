@@ -4,13 +4,9 @@ import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 
 
-type NavItem = {
-  name: string;
-  path: string;
-};
 
 interface NavigationProps {
-  navItems: NavItem[];
+  navItems: boolean;
   sincourse?: boolean; // optional if it might not always be passed
 }
 
@@ -32,7 +28,7 @@ const FAQPage: React.FC<NavigationProps> = ({ navItems, sincourse }) => {
     },
     {
       question: "Is there a money-back guarantee?",
-      answer: "Yes, we offer a 7-day money-back guarantee. If you're not satisfied with the course content within the first 30 days, you can request a full refund, no questions asked."
+      answer: "Yes, we offer a 7-day money-back guarantee. If you're not satisfied with the course content within the first 7 days, you can request a full refund, no questions asked."
     },
     {
       question: "Can I get help if I'm stuck on something?",

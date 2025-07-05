@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { Search, Menu, X, User } from 'lucide-react';
 
-type NavItem = {
-  name: string;
-  path: string;
-};
+
 
 interface NavigationProps {
-  navItems: NavItem[];
+  navItems: boolean;
   sincourse?: boolean; // optional if it might not always be passed
 }
 
 const Navigation: React.FC<NavigationProps> = ({ navItems, sincourse }) => {
+
+   const { id } = useParams<{ id?: string }>();
+
+// Prefer route param if available, else use `1` as default
+const courseId = id ? parseInt(id) : 1;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,7 +35,20 @@ const Navigation: React.FC<NavigationProps> = ({ navItems, sincourse }) => {
   //   { name: 'FAQ', path: '/faq' },
   //   { name: 'Contact', path: '/contact' },
   // ];
+  const navItems1 = [
+      { name: 'Courses', path: '/courses' },
+      { name: 'Ratings', path: '/ratings' },
+      { name: 'Testimonials', path: '/testimonials' },
+      { name: 'FAQ', path: '/faq' },
+      { name: 'Contact', path: '/contact' },
+    ];
 
+const navItems2 = [
+  { name: 'Ratings', path: `/buycourse/ratings/${courseId}` },
+  { name: 'Testimonials', path: `/buycourse/testimonials/${courseId}` },
+  { name: 'FAQ', path: `/buycourse/faq/${courseId}` },
+  { name: 'Contact', path: `/buycourse/contacts/${courseId}` },
+];
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
@@ -41,13 +56,18 @@ const Navigation: React.FC<NavigationProps> = ({ navItems, sincourse }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
+          {sincourse? (<Link to={`/buycourse/${courseId}`} className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+              <span className="text-white font-bold text-sm">A</span>
+            </div>
+            <span className="text-xl font-bold text-gray-900">Aseem Singhal</span>
+          </Link>):(
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-sm">A</span>
             </div>
             <span className="text-xl font-bold text-gray-900">Aseem Singhal</span>
-          </Link>
-
+          </Link>)}
           {/* Search Bar - Desktop */}
           {/* <div className="hidden md:flex items-center flex-1 max-w-md mx-8">
             <div className="relative w-full">
@@ -62,19 +82,37 @@ const Navigation: React.FC<NavigationProps> = ({ navItems, sincourse }) => {
 
           {/* Navigation Links - Desktop */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className={`font-medium transition-colors ${
-                  location.pathname === item.path
-                    ? 'text-[#2563EB]'
-                    : 'text-gray-700 hover:text-[#2563EB]'
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navItems ? (
+  navItems1.map((item) => (
+    <Link
+      key={item.name}
+      to={item.path}
+      className={`font-medium transition-colors ${
+        location.pathname === item.path
+          ? 'text-[#2563EB]'
+          : 'text-gray-700 hover:text-[#2563EB]'
+      }`}
+    >
+      {item.name}
+    </Link>
+  ))
+) : (
+  navItems2.map((item) => (
+    <Link
+      key={item.name}
+      to={item.path}
+      className={`font-medium transition-colors ${
+        location.pathname === item.path
+          ? 'text-[#2563EB]'
+          : 'text-gray-700 hover:text-[#2563EB]'
+      }`}
+    >
+      {item.name}
+    </Link>
+  ))
+)}
+
+            
           </div>
 
           {/* Auth Buttons - Desktop */}
@@ -113,8 +151,8 @@ const Navigation: React.FC<NavigationProps> = ({ navItems, sincourse }) => {
                   className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-full focus:outline-none focus:border-blue-500"
                 />
               </div> */}
-              
-              {navItems.map((item) => (
+              {navItems ? (
+  navItems1.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
@@ -123,7 +161,21 @@ const Navigation: React.FC<NavigationProps> = ({ navItems, sincourse }) => {
                 >
                   {item.name}
                 </Link>
-              ))}
+              ))
+) : (
+  navItems2.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[#2563EB] hover:bg-gray-50 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))
+)}
+
+              {}
               
               <div className="pt-4 pb-3 border-t border-gray-200">
                 <div className="space-y-2">

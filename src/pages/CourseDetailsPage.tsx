@@ -351,7 +351,7 @@ const navItems = [
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
-      { !cid ?( <Navigation navItems={navItems} />):""}
+      { !cid ?( <Navigation navItems={false} />):""}
       {/* Hero Section */}
       <div className="bg-gray-900 text-white">
         <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${!cid ? 'py-12': 'py-20'}`}>

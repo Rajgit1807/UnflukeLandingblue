@@ -26,7 +26,7 @@ const MyBooks = () => {
             This is a book to read, revisit, and master. A guide filled with strategies you'll analyze and apply repeatedly. Each page offers insights that sharpen your trading skills. You'll find yourself underlining key lessons and reflecting on them often.
           </p>
 
-          <p className="text-gray-800 font-medium mb-6 italic">BY Assem Singhal</p>
+          <p className="text-gray-800 font-medium mb-6 italic">BY Aseem Singhal</p>
           <a href='https://go.zebralearn.com/51-trading-strategies?_gl=1*x83d94*_ga*MTI0NDk3MDUzOC4xNzA3MjI1ODkz*_ga_21G196HESG*MTcwNzIyNTg5My4xLjEuMTcwNzIyNzAxNy42MC4wLjA.?afc=CVJBPSLA'> 
           <button className="bg-blue-400 hover:bg-blue-500 text-white w-fit font-semibold px-6 py-3 rounded-full transition duration-300  sm:w-auto">
             GET YOUR COPY

@@ -10,6 +10,7 @@ import MyBooks from '../components/MyBooks';
 import Navigation from '../components/Navigation';
 
 const HomePage = () => {
+  
   const navItems = [
     { name: 'Courses', path: '/courses' },
     { name: 'Ratings', path: '/ratings' },
@@ -20,7 +21,7 @@ const HomePage = () => {
 
   return (
     <div>
-     <Navigation navItems={navItems} />
+     <Navigation navItems={true} />
       <HeroSection />
       <ServicesSection />
       <PopularCoursesSection />

@@ -7,13 +7,10 @@ import dhaIcon from "./../assets/images/trusticon4.svg"
 import Navigation from "../components/Navigation";
 
 
-type NavItem = {
-  name: string;
-  path: string;
-};
+
 
 interface NavigationProps {
-  navItems: NavItem[];
+  navItems: boolean;
   sincourse?: boolean; // optional if it might not always be passed
 }
 

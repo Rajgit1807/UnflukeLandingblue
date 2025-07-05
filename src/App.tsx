@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -17,19 +17,6 @@ import IndiCoursePage from './pages/IndiCoursePage';
 function App() {
 
 
-  const navItems = [
-      { name: 'Courses', path: '/courses' },
-      { name: 'Ratings', path: '/ratings' },
-      { name: 'Testimonials', path: '/testimonials' },
-      { name: 'FAQ', path: '/faq' },
-      { name: 'Contact', path: '/contact' },
-    ];
-const navItems2 = [
-  { name: 'Ratings', path: `/buycourse/ratings` },
-  { name: 'Testimonials', path: '/buycourse/testimonials' },
-  { name: 'FAQ', path: '/buycourse/faq' },
-  { name: 'Contact', path: '/buycourse/contacts' },
-];
   return (
     <Router>
       <ScrollToTop/>
@@ -39,17 +26,17 @@ const navItems2 = [
             <Route path="/" element={<HomePage />} />
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/course/:id" element={<CourseDetailsPage />} />
-            <Route path="/ratings" element={<RatingsPage navItems={navItems}/>} />
+            <Route path="/ratings" element={<RatingsPage navItems={true}/>} />
             <Route path="/enrollment" element={<EnrollmentPage navhide={false}/>} />
             <Route path="/newsletter" element={<NewsletterPage />} />
-            <Route path="/testimonials" element={<TestimonialsPage navItems={navItems}/>} />
-            <Route path="/faq" element={<FAQPage navItems={navItems} />} />
-            <Route path="/contact" element={<ContactPage navItems={navItems} />} />
+            <Route path="/testimonials" element={<TestimonialsPage navItems={true}/>} />
+            <Route path="/faq" element={<FAQPage navItems={true}/>} />
+            <Route path="/contact" element={<ContactPage navItems={true} />} />
             <Route path="/buycourse/:id" element={<IndiCoursePage />}/>
-            <Route path="/buycourse/ratings" element={<RatingsPage navItems={navItems2} sincourse={true}/>} /> 
-            <Route path="/buycourse/testimonials" element={<TestimonialsPage navItems={navItems2} sincourse={true}/>} />        
-            <Route path="/buycourse/faq" element={<FAQPage navItems={navItems2} sincourse={true}/>} />        
-            <Route path="/buycourse/contacts" element={<ContactPage navItems={navItems2} sincourse={true}/>} />        
+            <Route path="/buycourse/ratings/:id" element={<RatingsPage navItems={false} sincourse={true}/>} /> 
+            <Route path="/buycourse/testimonials/:id" element={<TestimonialsPage navItems={false}  sincourse={true}/>} />        
+            <Route path="/buycourse/faq/:id" element={<FAQPage navItems={false}  sincourse={true}/>} />        
+            <Route path="/buycourse/contacts/:id" element={<ContactPage navItems={false} sincourse={true}/>} />        
        
           </Routes>
         </main>

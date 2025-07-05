@@ -368,17 +368,17 @@ const isStep1Valid = () => {
       </div>
     </div>
   );
-const navItems = [
-    { name: 'Courses', path: '/courses' },
-    { name: 'Ratings', path: '/ratings' },
-    { name: 'Testimonials', path: '/testimonials' },
-    { name: 'FAQ', path: '/faq' },
-    { name: 'Contact', path: '/contact' },
-  ];
+// const navItems = [
+//     { name: 'Courses', path: '/courses' },
+//     { name: 'Ratings', path: '/ratings' },
+//     { name: 'Testimonials', path: '/testimonials' },
+//     { name: 'FAQ', path: '/faq' },
+//     { name: 'Contact', path: '/contact' },
+//   ];
 
   return (
     <div className="pt-20 min-h-screen bg-[#f5fafc]" id='enroll-section'>
-      {navhide?   "": (<Navigation navItems={navItems} />)
+      {navhide?   "": (<Navigation navItems={false} />)
 }
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-white rounded-3xl shadow-lg overflow-hidden">

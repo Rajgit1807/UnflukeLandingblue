@@ -1,14 +1,12 @@
 import React from 'react';
 import { Star, Quote, TrendingUp, Award, Users } from 'lucide-react';
 import Navigation from '../components/Navigation';
+import { Link } from 'react-router-dom';
 
-type NavItem = {
-  name: string;
-  path: string;
-};
+
 
 interface NavigationProps {
-  navItems: NavItem[];
+  navItems: boolean;
   sincourse?: boolean; // optional if it might not always be passed
 }
 
@@ -214,9 +212,16 @@ const TestimonialsPage: React.FC<NavigationProps> = ({ navItems, sincourse }) =>
             These aren't just testimonials - they're real people who decided to 
             master systematic trading. Your learning journey could be next.
           </h2>
+          {sincourse ? (
           <button className="bg-white text-[#2563EB] px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors text-lg mt-6">
-            Start Your Learning Journey
+            Go To Register For Free
           </button>
+          ): ( <Link to="/enrollment">
+          <button className="bg-white text-[#2563EB] px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors text-lg mt-6">
+            Go To Register For Free
+          </button>
+          </Link>)}
+         
         </div>
       </div>
     </div>

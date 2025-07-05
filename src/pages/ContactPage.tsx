@@ -5,13 +5,9 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import Navigation from '../components/Navigation';
 
 
-type NavItem = {
-  name: string;
-  path: string;
-};
 
 interface NavigationProps {
-  navItems: NavItem[];
+  navItems: boolean;
   sincourse?: boolean; // optional if it might not always be passed
 }
 
@@ -25,7 +21,7 @@ const ContactPage: React.FC<NavigationProps> = ({ navItems, sincourse }) => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e:any) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value

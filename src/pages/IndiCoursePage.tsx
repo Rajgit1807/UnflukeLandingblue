@@ -20,17 +20,17 @@ const IndiCoursePage = () => {
 // Prefer route param if available, else use `1` as default
 const courseId = id ? parseInt(id) : 1;
 
-const navItems = [
-  { name: 'Ratings', path: `/buycourse/ratings` },
-  { name: 'Testimonials', path: '/buycourse/testimonials' },
-  { name: 'FAQ', path: '/buycourse/faq' },
-  { name: 'Contact', path: '/buycourse/contacts' },
-];
+// const navItems = [
+//   { name: 'Ratings', path: `/buycourse/ratings/${courseId}` },
+//   { name: 'Testimonials', path: `/buycourse/testimonials/${courseId}` },
+//   { name: 'FAQ', path: `/buycourse/faq/${courseId}` },
+//   { name: 'Contact', path: `/buycourse/contacts/${courseId}` },
+// ];
 
 
   return (
     <div>
-      <Navigation navItems={navItems} sincourse={true}/>
+      <Navigation  navItems={false} sincourse={true}/>
       <HeroSection />
       {/* <ServicesSection /> */}
       <CourseDetailsPage cid={1}/>
