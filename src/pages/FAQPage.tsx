@@ -3,7 +3,18 @@ import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 
-const FAQPage = () => {
+
+type NavItem = {
+  name: string;
+  path: string;
+};
+
+interface NavigationProps {
+  navItems: NavItem[];
+  sincourse?: boolean; // optional if it might not always be passed
+}
+
+const FAQPage: React.FC<NavigationProps> = ({ navItems, sincourse }) => {
   const [openFAQ, setOpenFAQ] = useState(null);
 
   const faqs = [
@@ -44,17 +55,10 @@ const FAQPage = () => {
     setOpenFAQ(openFAQ === index ? null : index);
   };
            
-const navItems = [
-    { name: 'Courses', path: '/courses' },
-    { name: 'Ratings', path: '/ratings' },
-    { name: 'Testimonials', path: '/testimonials' },
-    { name: 'FAQ', path: '/faq' },
-    { name: 'Contact', path: '/contact' },
-  ];
 
   return (
     <div className="pt-20 min-h-screen bg-[#f5fafc]">
-      <Navigation navItems={navItems} />
+      <Navigation navItems={navItems} sincourse={sincourse}/>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
         <div className="text-center mb-16">

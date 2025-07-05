@@ -13,13 +13,14 @@ interface CourseDetailsPageProps {
 }
 
 const CourseDetailsPage: React.FC<CourseDetailsPageProps> = ({ cid }) => {
+
   const { id } = useParams<{ id?: string }>();
 
   const [activeTab, setActiveTab] = useState('overview');
   const [isWishlisted, setIsWishlisted] = useState(false);
 
   // Prefer route param if available, else use `cid` prop
-  const courseId = id ? parseInt(id, 10) : cid;
+  const courseId = !id ? cid  : parseInt(id, 10);
 
   // Assuming courseData is accessible here
   const course = courseData.find((c) => c.id === courseId);
@@ -350,11 +351,11 @@ const navItems = [
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
-      {id ? ( <Navigation navItems={navItems} />):""}
+      { !cid ?( <Navigation navItems={navItems} />):""}
       {/* Hero Section */}
       <div className="bg-gray-900 text-white">
-        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${id ? 'py-12': 'py-20'}`}>
-          {id && 
+        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${!cid ? 'py-12': 'py-20'}`}>
+          {!cid && 
           <Link
             to="/courses"
             className="inline-flex items-center gap-2 text-gray-300 hover:text-white mb-6 transition-colors"

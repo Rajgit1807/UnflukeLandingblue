@@ -12,14 +12,24 @@ import TestimonialsPage from './pages/TestimonialsPage';
 import FAQPage from './pages/FAQPage';
 import ContactPage from './pages/ContactPage';
 import ScrollToTop from './components/ScrollToTop';
-import GrowwAlgo from './pages/GrowwAlgo';
-import HFTC from './pages/HFTC';
-import BasicsMarket from './pages/BasicsMarket';
-import BasicsOptions from './pages/BasicsOptions';
-import BackPython from './pages/BackPython';
-import AlgoPython from './pages/AlgoPython';
+import IndiCoursePage from './pages/IndiCoursePage';
 
 function App() {
+
+
+  const navItems = [
+      { name: 'Courses', path: '/courses' },
+      { name: 'Ratings', path: '/ratings' },
+      { name: 'Testimonials', path: '/testimonials' },
+      { name: 'FAQ', path: '/faq' },
+      { name: 'Contact', path: '/contact' },
+    ];
+const navItems2 = [
+  { name: 'Ratings', path: `/buycourse/ratings` },
+  { name: 'Testimonials', path: '/buycourse/testimonials' },
+  { name: 'FAQ', path: '/buycourse/faq' },
+  { name: 'Contact', path: '/buycourse/contacts' },
+];
   return (
     <Router>
       <ScrollToTop/>
@@ -29,18 +39,18 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/course/:id" element={<CourseDetailsPage />} />
-            <Route path="/ratings" element={<RatingsPage />} />
+            <Route path="/ratings" element={<RatingsPage navItems={navItems}/>} />
             <Route path="/enrollment" element={<EnrollmentPage navhide={false}/>} />
             <Route path="/newsletter" element={<NewsletterPage />} />
-            <Route path="/testimonials" element={<TestimonialsPage />} />
-            <Route path="/faq" element={<FAQPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/buycourse1" element={<GrowwAlgo />} />
-            <Route path="/buycourse2" element={<AlgoPython />} />
-            <Route path="/buycourse3" element={<HFTC />} />
-            <Route path="/buycourse4" element={<BackPython/>} />
-            <Route path="/buycourse5" element={<BasicsOptions/>} />
-            <Route path="/buycourse6" element={<BasicsMarket/>} />
+            <Route path="/testimonials" element={<TestimonialsPage navItems={navItems}/>} />
+            <Route path="/faq" element={<FAQPage navItems={navItems} />} />
+            <Route path="/contact" element={<ContactPage navItems={navItems} />} />
+            <Route path="/buycourse/:id" element={<IndiCoursePage />}/>
+            <Route path="/buycourse/ratings" element={<RatingsPage navItems={navItems2} sincourse={true}/>} /> 
+            <Route path="/buycourse/testimonials" element={<TestimonialsPage navItems={navItems2} sincourse={true}/>} />        
+            <Route path="/buycourse/faq" element={<FAQPage navItems={navItems2} sincourse={true}/>} />        
+            <Route path="/buycourse/contacts" element={<ContactPage navItems={navItems2} sincourse={true}/>} />        
+       
           </Routes>
         </main>
         <Footer />

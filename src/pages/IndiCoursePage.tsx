@@ -10,18 +10,23 @@ import MyBooks from '../components/MyBooks';
 import Navigation from '../components/Navigation';
 import CourseDetailsPage from './CourseDetailsPage';
 import EnrollmentPage from './EnrollmentPage';
+import { useParams } from 'react-router-dom';
 
 
+const IndiCoursePage = () => {
 
-const GrowwAlgo = () => {
+   const { id } = useParams<{ id?: string }>();
 
-      const navItems = [
-    // { name: 'Courses', path: '/courses' },
-    { name: 'Ratings', path: '/ratings' },
-    { name: 'Testimonials', path: '/testimonials' },
-    { name: 'FAQ', path: '/faq' },
-    { name: 'Contact', path: '/contact' },
-  ];
+// Prefer route param if available, else use `1` as default
+const courseId = id ? parseInt(id) : 1;
+
+const navItems = [
+  { name: 'Ratings', path: `/buycourse/ratings` },
+  { name: 'Testimonials', path: '/buycourse/testimonials' },
+  { name: 'FAQ', path: '/buycourse/faq' },
+  { name: 'Contact', path: '/buycourse/contacts' },
+];
+
 
   return (
     <div>
@@ -34,10 +39,10 @@ const GrowwAlgo = () => {
       <StorySection />
       <CertificatesSection />
       <TrustSection />
-      <EnrollmentPage navhide={true} cid={1}/>
+      <EnrollmentPage navhide={true} cid={courseId}/>
       {/* <MyBooks/> */}
       </div>
   )
 }
 
-export default GrowwAlgo
+export default IndiCoursePage

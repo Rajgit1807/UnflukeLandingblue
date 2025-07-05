@@ -8,7 +8,7 @@ interface Enrollmentprops {
    cid?: number;
 }
 
-const EnrollmentPage: React.FC<Enrollmentprops> = ({ navhide,cid }) => {
+const EnrollmentPage: React.FC<Enrollmentprops> = ({ navhide, cid }) => {
 
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -378,7 +378,7 @@ const navItems = [
 
   return (
     <div className="pt-20 min-h-screen bg-[#f5fafc]" id='enroll-section'>
-      {navhide ?   "": (<Navigation navItems={navItems} />)
+      {navhide?   "": (<Navigation navItems={navItems} />)
 }
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-white rounded-3xl shadow-lg overflow-hidden">

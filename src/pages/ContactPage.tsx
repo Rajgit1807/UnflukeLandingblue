@@ -4,7 +4,18 @@ import axios from 'axios'; // at the top
 import ReCAPTCHA from 'react-google-recaptcha';
 import Navigation from '../components/Navigation';
 
-const ContactPage = () => {
+
+type NavItem = {
+  name: string;
+  path: string;
+};
+
+interface NavigationProps {
+  navItems: NavItem[];
+  sincourse?: boolean; // optional if it might not always be passed
+}
+
+const ContactPage: React.FC<NavigationProps> = ({ navItems, sincourse }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -96,17 +107,11 @@ const handleCaptchaChange = (value: string | null): void => {
       answer: 'We offer a 7-day money-back guarantee on all our courses. See our refund policy for details.'
     }
   ];
-const navItems = [
-    { name: 'Courses', path: '/courses' },
-    { name: 'Ratings', path: '/ratings' },
-    { name: 'Testimonials', path: '/testimonials' },
-    { name: 'FAQ', path: '/faq' },
-    { name: 'Contact', path: '/contact' },
-  ];
-  
+
+
   return (
     <div className="pt-20 min-h-screen bg-[#f5fafc]">
-            <Navigation navItems={navItems} />
+            <Navigation navItems={navItems} sincourse={sincourse}/>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}

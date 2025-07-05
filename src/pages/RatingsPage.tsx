@@ -6,6 +6,18 @@ import deltaIcon from "./../assets/images/trusticon3.svg"
 import dhaIcon from "./../assets/images/trusticon4.svg"
 import Navigation from "../components/Navigation";
 
+
+type NavItem = {
+  name: string;
+  path: string;
+};
+
+interface NavigationProps {
+  navItems: NavItem[];
+  sincourse?: boolean; // optional if it might not always be passed
+}
+
+
 const platforms = [
   {
     name: "Groww",
@@ -28,19 +40,13 @@ const platforms = [
     image: dhaIcon,
   },
 ];
-const navItems = [
-    { name: 'Courses', path: '/courses' },
-    { name: 'Ratings', path: '/ratings' },
-    { name: 'Testimonials', path: '/testimonials' },
-    { name: 'FAQ', path: '/faq' },
-    { name: 'Contact', path: '/contact' },
-  ];
 
 
-const RatingPage = () => {
+
+const RatingPage: React.FC<NavigationProps> = ({ navItems, sincourse }) => {
   return (
     <section className="bg-[#f5fafc] py-16 px-4 text-center w-full pt-28 pb-32">
-           <Navigation navItems={navItems} />
+           <Navigation navItems={navItems} sincourse={sincourse}/>
       <div className="max-w-[1320px] mx-auto">
         <div className="inline-block bg-blue-100 text-[#2563EB] px-5 pb-[7px] pt-[9px] rounded-full font-medium mb-6">
           Trusted & Verified
