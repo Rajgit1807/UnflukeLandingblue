@@ -17,9 +17,9 @@ const HeroSection = () => {
 const logos = [
   { image: GrowwIcon, width: 170, height: 140 },
   { image: UnflukeIcon, width: 200, height: 40 },
-  { image: IIMIcon, width: 50, height: 40 },
   { image: ChitkaraIcon, width: 160, height: 40 },
-  { image: DeutscheIcon, width: 190, height: 40 },
+  { image: DeutscheIcon, width: 240, height: 40 },
+    { image: IIMIcon, width: 50, height: 40 },
 ];
  
 
@@ -134,8 +134,8 @@ const logos = [
 
         {/* Partner Logos */}
         <div className="mt-20 pt-3 md:pt-12 border-t border-gray-200">
-          <div className="grid grid-cols-4 items-center justify-center gap-2 md:gap-4 opacity-60 grayscale px-3 md:px-10 lg:px-20 mx-auto">
-           {logos.slice(0,4).map((logo, index) =>
+          <div className="max-w-5xl grid grid-cols-3 items-center justify-center gap-2 md:gap-4 opacity-60 grayscale px-1 md:px-10 lg:px-20 mx-auto">
+           {logos.slice(0,3).map((logo, index) =>
   logo.image === IIMIcon ? (
     <div key={index} className="flex items-center w-fit mx-auto gap-3">
       <img src={logo.image} width={logo.width} height={logo.height} alt="logo" />
@@ -148,16 +148,16 @@ const logos = [
   )
 )}
           </div>
-          <div  className="flex items-center justify-centergap-2 md:gap-4 opacity-60 grayscale px-3 md:px-10 lg:px-20 mx-auto mt-3">
-            {logos.slice(4,5).map((logo, index) =>
+          <div  className="max-w-[95%] md:max-w-2xl flex items-center justify-between opacity-60 grayscale lg:gap-20 px-[1%] md:px-10 lg:px-20 mx-auto mt-1">
+            {logos.slice(3,5).map((logo, index) =>
   logo.image === IIMIcon ? (
-    <div key={index} className="flex items-center w-fit mx-auto gap-3">
-      <img src={logo.image} width={logo.width} height={logo.height} alt="logo" />
-      <p className='text-gray-800 text-4xl font-bold'>IIM</p>
+    <div key={index} className="flex items-center mx-auto max-w-[100px] md:max-w-[200px] gap-1 md:gap-2">
+      <img src={logo.image} alt="logo" className='max-w-[35%] max-h-[35%] md:max-w-[25%] md:max-h-[25%]' />
+      <p className='text-gray-800 text-4xl max-sm:text-[180%] font-bold'>IIM</p>
     </div>
   ) : (
     <div key={index} className="flex items-center w-fit mx-auto">
-      <img src={logo.image} width={logo.width} height={logo.height} alt="logo" />
+      <img src={logo.image}   alt="logo" className='w-44 md:w-60 lg:w-80 '/>
     </div>
   )
 )}

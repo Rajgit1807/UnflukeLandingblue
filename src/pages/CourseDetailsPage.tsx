@@ -364,7 +364,7 @@ if (!course) {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
-      { segments[1] == "course" ?( <Navigation navItems={true} sincourse={false} />):(<Navigation navItems={false} sincourse= {true}/>)}
+      { segments[1] == "course" ?( <Navigation navItems={true} sincourse={false} />):<></>}
       {/* Hero Section */}
       <div className="bg-gray-900 text-white">
         <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${!cid ? 'py-12': 'py-20'}`}>
@@ -465,9 +465,11 @@ if (!course) {
     }
   }} className="w-full bg-blue-600 text-white py-3 px-6 rounded-full font-semibold hover:bg-blue-700 transition-colors">
                       Enroll Now
-                    </button>):(<button  className="w-full bg-blue-600 text-white py-3 px-6 rounded-full font-semibold hover:bg-blue-700 transition-colors">
+                    </button>):(
+                      <Link to="/enrollment" ><button  className="w-full bg-blue-600 text-white py-3 px-6 rounded-full font-semibold hover:bg-blue-700 transition-colors">
                       Enroll Now
-                    </button>)}
+                    </button>
+                    </Link>)}
                     
                     {/* <button
                       onClick={() => setIsWishlisted(!isWishlisted)}

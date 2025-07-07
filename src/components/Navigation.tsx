@@ -175,8 +175,7 @@ const navItems2 = [
               ))
 )}
 
-              {}
-              
+              {!sincourse &&
               <div className="pt-4 pb-3 border-t border-gray-200">
                 <div className="space-y-2">
                   <button className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-[#2563EB] transition-colors">
@@ -187,10 +186,11 @@ const navItems2 = [
                     className="block w-full bg-[#2563EB] text-white px-3 py-2 rounded-full hover:bg-[#2852ad] transition-colors font-medium text-center"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Enroll Now
+                    Register For Free
                   </Link>
                 </div>
               </div>
+               }
             </div>
           </div>
         )}

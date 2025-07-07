@@ -384,7 +384,7 @@ const isStep1Valid = () => {
 
   return (
     <div className="pt-20 min-h-screen bg-[#f5fafc]" id='enroll-section'>
-      {segments[1]=="enrollment" ?( <Navigation navItems={true} sincourse={false} />):(<Navigation navItems={false} sincourse= {true}/>)}
+      {segments[1]=="enrollment" ?( <Navigation navItems={true} sincourse={false} />):<></>}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
           {/* Header */}
