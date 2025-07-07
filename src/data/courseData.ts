@@ -26,6 +26,7 @@ export interface Instructor {
 export interface Course {
   id: number;
   title: string;
+  doubt:number;
   description: string;
   aboutcourse: string;
   more:string;
@@ -65,8 +66,9 @@ export const courseData: Course[] = [
     category: 'Trading',
     level: 'Intermediate',
     type: 'Live',
-    duration: '11 hr 25 mins',
-    lessons: 35,
+    duration: '30 hr 25 mins',
+    lessons: 10,
+    doubt:10,
     rating: 4.7,
     students: 180,
     price: 7999,
@@ -177,6 +179,7 @@ export const courseData: Course[] = [
     type: 'Live',
     duration: '10 hr 2 mins',
     lessons: 40,
+        doubt:10,
     rating: 4.8,
     students: 3500,
     price: 7999,
@@ -284,6 +287,7 @@ export const courseData: Course[] = [
     type: 'Live',
     duration: '16 hr 3 mins',
     lessons: 50,
+        doubt:10,
     rating: 4.6,
     students: 210,
     price: 49999,
@@ -392,6 +396,7 @@ export const courseData: Course[] = [
     type: 'Recorded',
     duration: '10 hr 25 mins',
     lessons: 38,
+        doubt:10,
     rating: 4.7,
     students: 2150,
     price: 29999,
@@ -500,6 +505,7 @@ export const courseData: Course[] = [
     type: 'Recorded',
     duration: '4 hr 10 mins',
     lessons: 22,
+        doubt:10,
     rating: 4.5,
     students: 3200,
     price: 3999,
@@ -607,6 +613,7 @@ featuresLearn: [
     type: 'Recorded',
     duration: '11 hr 25 mins',
     lessons: 30,
+        doubt:10,
     rating: 4.6,
     students: 3115,
     price: 2999,

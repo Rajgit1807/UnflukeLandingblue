@@ -36,7 +36,8 @@ function App() {
             <Route path="/buycourse/ratings/:id" element={<RatingsPage navItems={false} sincourse={true}/>} /> 
             <Route path="/buycourse/testimonials/:id" element={<TestimonialsPage navItems={false}  sincourse={true}/>} />        
             <Route path="/buycourse/faq/:id" element={<FAQPage navItems={false}  sincourse={true}/>} />        
-            <Route path="/buycourse/contacts/:id" element={<ContactPage navItems={false} sincourse={true}/>} />          
+            <Route path="/buycourse/contacts/:id" element={<ContactPage navItems={false} sincourse={true}/>} />
+            <Route path="/buycourse/moredetails/:id" element={<CourseDetailsPage />} />                    
           </Routes>
         </main>
       </div>

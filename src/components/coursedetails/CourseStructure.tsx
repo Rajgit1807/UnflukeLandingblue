@@ -89,7 +89,7 @@ const CourseStructure: React.FC<Props> = ({ course }) => {
             Course Structure: {courses.length} Live Classes
           </h2>
           <p className="text-base sm:text-lg text-gray-600">
-            Each class is a structured session taught live with recordings provided.
+            {course.more}
           </p>
         </div>
 

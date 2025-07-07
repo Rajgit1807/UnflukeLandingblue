@@ -12,6 +12,7 @@ import CourseDetailsPage from './CourseDetailsPage';
 import EnrollmentPage from './EnrollmentPage';
 import { useParams } from 'react-router-dom';
 import CFooter from '../components/coursedetails/CFooter';
+import CourseDetailsPage2 from './CourseDetailsPage2';
 
 
 const IndiCoursePage = () => {
@@ -34,7 +35,7 @@ const courseId = id ? parseInt(id) : 1;
       <Navigation  navItems={false} sincourse={true}/>
       <HeroSection />
       {/* <ServicesSection /> */}
-      <CourseDetailsPage cid={1}/>
+      <CourseDetailsPage2 cid={1}/>
       {/* <PopularCoursesSection /> */}
       {/* <RecordedCoursesSection /> */}
       <StorySection />
