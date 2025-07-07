@@ -31,7 +31,6 @@ const HomePage = () => {
       <CertificatesSection />
       <TrustSection />
       <MyBooks/>
-      <Footer/>
     </div>
   );
 };

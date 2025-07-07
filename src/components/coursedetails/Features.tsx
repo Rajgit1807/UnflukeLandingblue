@@ -52,48 +52,17 @@ export default function Features() {
         </div>
 
         {/* Tools & Certification */}
-        <div className="flex flex-col  gap-6 sm:gap-8 mb-12">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-12">
           <div className="bg-white rounded-lg p-4 sm:p-6 shadow-md border">
             <div className="flex items-center space-x-3 mb-4">
               <Code2 className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600" />
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Tools You'll Learn</h2>
             </div>
             <div className="space-y-2 sm:space-y-3">
-             <div>
-  <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Groww Account Setup</h3>
-  <p className="text-gray-600 text-xs sm:text-sm">Learn how to create a Groww account and get developer access for API integration.</p>
-</div>
-
-<div>
-  <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Python & API Integration</h3>
-  <p className="text-gray-600 text-xs sm:text-sm">Set up Python and connect to Groww APIs — no coding experience required.</p>
-</div>
-
-<div>
-  <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Live Market Data</h3>
-  <p className="text-gray-600 text-xs sm:text-sm">Fetch real-time market data from Groww using Python scripts.</p>
-</div>
-
-<div>
-  <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Automated Order Placement</h3>
-  <p className="text-gray-600 text-xs sm:text-sm">Place and modify orders programmatically through the broker API.</p>
-</div>
-
-<div>
-  <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Trading Logic with Indicators</h3>
-  <p className="text-gray-600 text-xs sm:text-sm">Build buy/sell logic using technical indicators and market signals.</p>
-</div>
-
-<div>
-  <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Strategy Automation</h3>
-  <p className="text-gray-600 text-xs sm:text-sm">Automate your entire trading strategy from signal to execution.</p>
-</div>
-
-<div>
-  <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Error Handling & Deployment</h3>
-  <p className="text-gray-600 text-xs sm:text-sm">Implement logging, error handling, and deploy your system for live or paper trading.</p>
-</div>
-
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Python Libraries</h3>
+                <p className="text-gray-600 text-xs sm:text-sm">TA, PandasTA, Broker libraries, Pandas, NumPy</p>
+              </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Trading Platforms</h3>
                 <p className="text-gray-600 text-xs sm:text-sm">Groww</p>

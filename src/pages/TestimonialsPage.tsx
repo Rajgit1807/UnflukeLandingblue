@@ -225,7 +225,6 @@ const TestimonialsPage: React.FC<NavigationProps> = ({ navItems, sincourse }) =>
          
         </div>
       </div>
-      <Footer/>
     </div>
   );
 };

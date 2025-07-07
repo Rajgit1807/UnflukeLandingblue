@@ -444,32 +444,7 @@ if (!course) {
      <CourseStructure course={course}/>
      <Features/>
      <Outcomes/>
-     {!cid && <CFooter/>}
      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

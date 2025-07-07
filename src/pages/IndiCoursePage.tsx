@@ -43,7 +43,6 @@ const courseId = id ? parseInt(id) : 1;
       <TrustSection />
       <EnrollmentPage navhide={true} cid={courseId}/>
       {/* <MyBooks/> */}
-      <CFooter/>
       </div>
   )
 }

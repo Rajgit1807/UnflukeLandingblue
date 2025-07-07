@@ -460,7 +460,6 @@ const isStep1Valid = () => {
           </div>
         </div>
       </div>
-      {segments[1]=="enrollment" && <Footer/>}
       
     </div>
   );

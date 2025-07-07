@@ -40,6 +40,7 @@ function App() {
             <Route path="/buycourse/moredetails/:id" element={<CourseDetailsPage />} />                    
           </Routes>
         </main>
+        <Footer/>
       </div>
     </Router>
   );

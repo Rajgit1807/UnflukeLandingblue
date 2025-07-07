@@ -22,6 +22,10 @@ export interface Instructor {
   courses: number;
   rating: number;
 }
+export interface Tools {
+  title:string;
+  des:string;
+}
 
 export interface Course {
   id: number;
@@ -39,6 +43,7 @@ export interface Course {
   students: number;
   price: number;
   reviews: number;
+  tools: Tools[];
   originalPrice: number | null;
   featuresLearn: string[];
   coursefeatures: string[];
@@ -84,6 +89,38 @@ export const courseData: Course[] = [
 'Logging, error handling & live deployment'
 
     ],
+    
+    tools:[
+  {
+    title: "Groww Account Setup",
+    des: "Learn how to create a Groww account and get developer access for API integration."
+  },
+  {
+    title: "Python & API Integration",
+    des: "Set up Python and connect to Groww APIs — no coding experience required."
+  },
+  {
+    title: "Live Market Data",
+    des: "Fetch real-time market data from Groww using Python scripts."
+  },
+  {
+    title: "Automated Order Placement",
+    des: "Place and modify orders programmatically through the broker API."
+  },
+  {
+    title: "Trading Logic with Indicators",
+    des: "Build buy/sell logic using technical indicators and market signals."
+  },
+  {
+    title: "Strategy Automation",
+    des: "Automate your entire trading strategy from signal to execution."
+  },
+  {
+    title: "Error Handling & Deployment",
+    des: "Implement logging, error handling, and deploy your system for live or paper trading."
+  }
+],
+
      coursehighlights: [
 '10 Live Sessions with Aseem focused on Groww ecosystem',
 '10 Hand-Holding Sessions for doubt-solving and debugging',
@@ -177,8 +214,8 @@ export const courseData: Course[] = [
     category: 'Trading',
     level: 'Advanced',
     type: 'Live',
-    duration: '10 hr 2 mins',
-    lessons: 40,
+    duration: '30 hr 2 mins',
+    lessons: 10,
         doubt:10,
     rating: 4.8,
     students: 3500,
@@ -301,6 +338,8 @@ export const courseData: Course[] = [
 'Strategy development with indicators and support/resistance',
 'Advanced Python-based trading strategies',
     ],
+    tools:[{title:"" , des:""}],
+
      coursehighlights: [
 '✅ 10 Live Sessions with Aseem (real-time learning & coding)',
 '✅ 10 Hand-Holding Doubt Sessions (1:1 style support)',

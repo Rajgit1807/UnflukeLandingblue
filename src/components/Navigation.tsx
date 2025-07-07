@@ -44,6 +44,7 @@ const courseId = id ? parseInt(id) : 1;
     ];
 
 const navItems2 = [
+    { name: 'Course Detail', path: `/buycourse/moredetails/${courseId}` },
   { name: 'Ratings', path: `/buycourse/ratings/${courseId}` },
   { name: 'Testimonials', path: `/buycourse/testimonials/${courseId}` },
   { name: 'FAQ', path: `/buycourse/faq/${courseId}` },

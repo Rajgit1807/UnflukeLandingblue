@@ -123,7 +123,6 @@ const FAQPage: React.FC<NavigationProps> = ({ navItems, sincourse }) => {
           </Link>
         </div>
       </div>
-      <Footer/>
     </div>
   );
 };

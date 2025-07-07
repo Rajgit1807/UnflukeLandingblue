@@ -177,7 +177,6 @@ const NewsletterPage = () => {
           </div>
         </div>
       </div>
-      <Footer/>
     </div>
   );
 };

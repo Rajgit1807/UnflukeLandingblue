@@ -83,7 +83,6 @@ const RatingPage: React.FC<NavigationProps> = ({ navItems, sincourse }) => {
           </button>
         </div> */}
       </div>
-      <Footer/>
     </section>
   );
 };

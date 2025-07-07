@@ -515,7 +515,6 @@ const courses = [
           </div>
         )}
       </div>
-      <Footer/>
     </div>
   );
 };

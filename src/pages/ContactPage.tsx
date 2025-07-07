@@ -340,7 +340,6 @@ const handleCaptchaChange = (value: string | null): void => {
           </div>
         </div>
       </div>
-      <Footer/>
     </div>
   );
 };
