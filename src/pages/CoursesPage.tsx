@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Search, Filter, Clock, Star, Users, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 const CoursesPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -514,6 +515,7 @@ const courses = [
           </div>
         )}
       </div>
+      <Footer/>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import { Star, Quote, TrendingUp, Award, Users } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 
 
@@ -224,6 +225,7 @@ const TestimonialsPage: React.FC<NavigationProps> = ({ navItems, sincourse }) =>
          
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

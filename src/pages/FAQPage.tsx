@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 
 
@@ -122,6 +123,7 @@ const FAQPage: React.FC<NavigationProps> = ({ navItems, sincourse }) => {
           </Link>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

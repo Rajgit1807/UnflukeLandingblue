@@ -3,6 +3,7 @@ import { Calendar, CreditCard, User, Mail, Phone, MapPin, CheckCircle } from 'lu
 import {courseData} from "./../data/courseData"
 import Navigation from '../components/Navigation';
 import { useLocation } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 interface Enrollmentprops {
   navhide: boolean; 
@@ -459,6 +460,8 @@ const isStep1Valid = () => {
           </div>
         </div>
       </div>
+      {segments[1]=="enrollment" && <Footer/>}
+      
     </div>
   );
 };

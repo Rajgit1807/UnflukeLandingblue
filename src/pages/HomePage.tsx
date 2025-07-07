@@ -8,9 +8,10 @@ import CertificatesSection from '../components/CertificatesSection';
 import TrustSection from '../components/TrustSection';
 import MyBooks from '../components/MyBooks';
 import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 const HomePage = () => {
-  
+
   const navItems = [
     { name: 'Courses', path: '/courses' },
     { name: 'Ratings', path: '/ratings' },
@@ -30,6 +31,7 @@ const HomePage = () => {
       <CertificatesSection />
       <TrustSection />
       <MyBooks/>
+      <Footer/>
     </div>
   );
 };

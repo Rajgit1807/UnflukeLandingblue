@@ -5,6 +5,7 @@ import fyerIcon from "./../assets/images/trusticon2.svg"
 import deltaIcon from "./../assets/images/trusticon3.svg"
 import dhaIcon from "./../assets/images/trusticon4.svg"
 import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 
 
@@ -42,9 +43,9 @@ const platforms = [
 
 const RatingPage: React.FC<NavigationProps> = ({ navItems, sincourse }) => {
   return (
-    <section className="bg-[#f5fafc] py-16 px-4 text-center w-full pt-28 pb-32">
+    <section className="bg-[#f5fafc] text-center w-full pt-28">
            <Navigation navItems={navItems} sincourse={sincourse}/>
-      <div className="max-w-[1320px] mx-auto">
+      <div className="max-w-[1320px] mx-auto pb-28">
         <div className="inline-block bg-blue-100 text-[#2563EB] px-5 pb-[7px] pt-[9px] rounded-full font-medium mb-6">
           Trusted & Verified
         </div>
@@ -82,6 +83,7 @@ const RatingPage: React.FC<NavigationProps> = ({ navItems, sincourse }) => {
           </button>
         </div> */}
       </div>
+      <Footer/>
     </section>
   );
 };

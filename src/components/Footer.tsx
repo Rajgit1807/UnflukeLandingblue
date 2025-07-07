@@ -68,7 +68,7 @@ const iconMap = {
 };
 
   return (
-    <footer className="bg-[#1e40af]  text-white">
+    <footer className="bg-[#1e40af]  text-white ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:pb-12 md:pt-12 pb-10 pt-3">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           {/* Brand Section */}

@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin, Clock, Send, CheckCircle, MessageSquare, User } fr
 import axios from 'axios'; // at the top
 import ReCAPTCHA from 'react-google-recaptcha';
 import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 
 
@@ -339,6 +340,7 @@ const handleCaptchaChange = (value: string | null): void => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

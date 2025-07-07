@@ -7,6 +7,11 @@ import {
 } from 'lucide-react';
 import { courseData } from '../data/courseData';
 import Navigation from '../components/Navigation';
+import { PlayCircle,  Target } from 'lucide-react';
+import CourseStructure from '../components/coursedetails/CourseStructure';
+import Features from '../components/coursedetails/Features';
+import Outcomes from '../components/coursedetails/Outcomes';
+import CFooter from '../components/coursedetails/CFooter';
 
 interface CourseDetailsPageProps {
   cid?: number; // Make optional in case it's not passed
@@ -365,8 +370,116 @@ if (!course) {
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
       { segments[1] == "course" ?( <Navigation navItems={true} sincourse={false} />):<></>}
+         <section className="relative bg-white">
+      {/* Hero Image Section */}
+      <div className="relative h-80 overflow-hidden">
+        <img 
+          src="https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop" 
+          alt="Trading and Analytics" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/60"></div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-white px-4 sm:px-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              {course.title.split(" ").slice(0, 2).join(" ")}
+              <span className="block text-2xl sm:text-3xl md:text-4xl text-blue-200">{course.title.split(" ").slice(2, 4).join(" ")}</span>
+            </h1>
+            <p className="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto">
+              {course.description}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Course Stats */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 -mt-16 relative z-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8">
+          <div className="bg-white rounded-lg p-3 sm:p-4 text-center shadow-lg border">
+            <Users className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600 mx-auto mb-2" />
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{course.lessons}</h3>
+            <p className="text-gray-600 text-xs sm:text-sm">Live Classes</p>
+          </div>
+          <div className="bg-white rounded-lg p-3 sm:p-4 text-center shadow-lg border">
+            <Clock className="h-6 w-6 sm:h-8 sm:w-8 text-purple-600 mx-auto mb-2" />
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{course.duration.slice(0,2)}</h3>
+            <p className="text-gray-600 text-xs sm:text-sm">Hours Total</p>
+          </div>
+          <div className="bg-white rounded-lg p-3 sm:p-4 text-center shadow-lg border">
+            <Award className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600 mx-auto mb-2" />
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900">∞</h3>
+            <p className="text-gray-600 text-xs sm:text-sm">Lifetime Access</p>
+          </div>
+          <div className="bg-white rounded-lg p-3 sm:p-4 text-center shadow-lg border">
+            <Target className="h-6 w-6 sm:h-8 sm:w-8 text-purple-600 mx-auto mb-2" />
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900">10</h3>
+            <p className="text-gray-600 text-xs sm:text-sm">Doubt Sessions</p>
+          </div>
+        </div>
+
+        {/* Perfect For Section */}
+        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 mb-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-center text-gray-900 mb-4">Perfect For</h2>
+          <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
+            <div className="flex items-center space-x-3">
+              <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+              <span className="text-sm sm:text-base text-gray-700">Traders wanting to automate option strategies</span>
+            </div>
+            <div className="flex items-center space-x-3">
+              <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+              <span className="text-sm sm:text-base text-gray-700">Beginners learning Python for financial markets</span>
+            </div>
+            <div className="flex items-center space-x-3">
+              <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+              <span className="text-sm sm:text-base text-gray-700">Professionals moving beyond manual trading</span>
+            </div>
+            <div className="flex items-center space-x-3">
+              <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+              <span className="text-sm sm:text-base text-gray-700">Anyone wanting to design & deploy strategies</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+     <CourseStructure course={course}/>
+     <Features/>
+     <Outcomes/>
+     {!cid && <CFooter/>}
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       {/* Hero Section */}
-      <div className="bg-gray-900 text-white">
+      {/* <div className="bg-gray-900 text-white">
         <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${!cid ? 'py-12': 'py-20'}`}>
           {!cid && 
           <Link
@@ -427,7 +540,6 @@ if (!course) {
               </div>
             </div>
 
-            {/* Course Preview Card */}
             <div className="lg:col-span-1">
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg sticky top-24">
                 <div className="relative">
@@ -471,19 +583,7 @@ if (!course) {
                     </button>
                     </Link>)}
                     
-                    {/* <button
-                      onClick={() => setIsWishlisted(!isWishlisted)}
-                      className={`w-full border-2 py-3 px-6 rounded-full font-semibold transition-colors ${
-                        isWishlisted
-                          ? 'border-blue-600 text-[#2563EB] bg-blue-50'
-                          : 'border-gray-300 text-gray-700 hover:border-blue-600 hover:text-[#2563EB]'
-                      }`}
-                    >
-                      <div className="flex items-center justify-center gap-2">
-                        <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-current' : ''}`} />
-                        {isWishlisted ? 'Wishlisted' : 'Add to Wishlist'}
-                      </div>
-                    </button> */}
+                
                   </div>
 
                   <div className="space-y-3 text-sm text-gray-600">
@@ -511,14 +611,7 @@ if (!course) {
                     )}
                   </div>
 
-                  {/* <div className="flex justify-center gap-4 mt-6 pt-6 border-t border-gray-200">
-                    <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-                      <Share2 className="w-5 h-5 text-gray-600" />
-                    </button>
-                    <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-                      <MessageSquare className="w-5 h-5 text-gray-600" />
-                    </button>
-                  </div> */}
+                
                 </div>
               </div>
             </div>
@@ -526,10 +619,9 @@ if (!course) {
         </div>
       </div>
 
-      {/* Course Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:py-12 py-8">
         <div className="lg:pr-80">
-          {/* Tabs */}
+
           <div className="border-b border-gray-200 mb-8">
             <nav className="flex space-x-8">
               {tabs.map((tab) => (
@@ -548,15 +640,13 @@ if (!course) {
             </nav>
           </div>
 
-          {/* Tab Content */}
           <div className="bg-white rounded-lg p-8">
             {activeTab === 'overview' && renderOverview()}
             {activeTab === 'curriculum' && renderCurriculum()}
-            {/* {activeTab === 'details' && renderInstructor()}
-            {activeTab === 'reviews' && renderReviews()} */}
+
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, TrendingUp, Bell, Calendar, CheckCircle } from 'lucide-react';
 import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 const NewsletterPage = () => {
   const [email, setEmail] = useState('');
@@ -176,6 +177,7 @@ const NewsletterPage = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

@@ -11,6 +11,7 @@ import Navigation from '../components/Navigation';
 import CourseDetailsPage from './CourseDetailsPage';
 import EnrollmentPage from './EnrollmentPage';
 import { useParams } from 'react-router-dom';
+import CFooter from '../components/coursedetails/CFooter';
 
 
 const IndiCoursePage = () => {
@@ -41,6 +42,7 @@ const courseId = id ? parseInt(id) : 1;
       <TrustSection />
       <EnrollmentPage navhide={true} cid={courseId}/>
       {/* <MyBooks/> */}
+      <CFooter/>
       </div>
   )
 }
