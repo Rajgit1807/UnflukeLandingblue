@@ -195,7 +195,7 @@ if (!course) {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-gray-900 mb-3">Course Highlights </h4>
+            <h4 className="font-semibold text-gray-900 mb-3">Course Highlights</h4>
             <ul className="space-y-2">
               {course.coursehighlights.map((feature, index) => (
                 <li key={index} className="flex items-start gap-3">
